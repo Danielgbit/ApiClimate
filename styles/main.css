@@ -26,8 +26,9 @@ body {
 .container .form {
   display: flex;
   gap: 20px;
+  flex-direction: column;
 }
-.container .form input {
+.container .form div input {
   border: none;
   height: 2rem;
   width: 20rem;
@@ -37,12 +38,12 @@ body {
   font-weight: 600;
   transition: all 400ms ease;
 }
-.container .form input:focus {
+.container .form div input:focus {
   outline: 2px solid rgb(4, 81, 91);
   outline-offset: 4px;
   opacity: 0.8;
 }
-.container .form button {
+.container .form div button {
   border: none;
   height: 2rem;
   width: 5rem;
@@ -54,8 +55,25 @@ body {
   cursor: pointer;
   transition: all 300ms ease-in-out;
 }
-.container .form button:hover {
+.container .form div button:hover {
   transform: translateX(3px);
   background: linear-gradient(90deg, rgb(0, 0, 0) 44%, rgb(185, 245, 255) 100%);
   color: white;
+}
+
+.response {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.response .response-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: rgb(93, 110, 159);
+  border-radius: 20px;
 }/*# sourceMappingURL=main.css.map */

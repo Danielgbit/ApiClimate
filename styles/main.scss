@@ -28,8 +28,9 @@ body {
 
         display: flex;
         gap: 20px;
+        flex-direction: column;
 
-        input {
+        div input {
             border: none;
             height: 2rem;
             width: 20rem;
@@ -46,7 +47,7 @@ body {
             }
         }
 
-        button {
+        div button {
             border: none;
             height: 2rem;
             width: 5rem;
@@ -64,5 +65,24 @@ body {
                 color: white;
             }
         }
+    }
+}
+
+
+.response {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .response-data {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        margin-top: 40px;
+        background-color: rgb(93, 110, 159);
+        border-radius: 20px;
     }
 }

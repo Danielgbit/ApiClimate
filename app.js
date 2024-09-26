@@ -21,8 +21,50 @@ buttonSubmit.addEventListener('click', (e) => {
 async function fetchApi(city){
     const completeUrl = `${baseUrl}?q=${city}&appid=${apiKey}`
     const called = await fetch(completeUrl);
+
+    if (!called.ok) {
+        alert('error del servidor 500')
+        return
+    };
+
     const res = await called.json();
-    console.log(res);   
-}
+    showWeatherData(res);
+};
+
+function showWeatherData(data){
+
+    const response = document.querySelector('.response');
+    const responseData = document.createElement('article');
+    response.appendChild(responseData);
+    responseData.classList.add('response-data');
+
+    const name = data.name;
+    const country = data.sys.country;
+    const humidity = data.main.humidity;
+    const sky = data.weather[0].description;
+    const icon = data.weather[0].icon;
+    const coord = {
+        lon: data.coord.lon,
+        lat: data.coord.lat
+    };
+
+    const countryAndCity = document.createElement('h3');
+    countryAndCity.textContent = `${name} - ${country}`;
+
+    const weatherData = document.createElement('span');
+    weatherData.textContent = `Humidity: ${humidity} - sky: ${sky}`;
+
+    const coordData = document.createElement('p');
+    coordData.textContent = `lon: ${coord.lon} - lat: ${coord.lat}`;
+
+    const iconData = document.createElement('img');
+    iconData.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+
+    responseData.appendChild(countryAndCity);
+    responseData.appendChild(weatherData);
+    responseData.appendChild(coordData);
+    responseData.appendChild(iconData);    
+
+};
 
 
